@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{contact.surname}} {{ contact.name }}
+{% endblock %}
+
+
+{% block content %}
+<a href="{% url 'edit_contact' contact.id %}" class="btn btn-primary">Изменить</a>
+<div class="card mt-3">
+    <div class="card-header">
+        <h5>Карточка контакта</h5>
+        <div class="card-body">
+            <p>
+                <span class="text-info ml-2">Имя:</span>
+                <span class="text ml-2">{{contact.name}}</span>
+            </p>
+
+            <p>
+                <span class="text-info ml-2">Фамилия:</span>
+                <span class="text ml-2">{{contact.surname}}</span>
+            </p>
+
+            <p>
+                <span class="text-info ml-2">Отчество:</span>
+                <span class="text ml-2">{{contact.patronymic}}</span>
+            </p>
+
+            {% if contact.date_born != "" %}
+            <p>
+                <span class="text-info ml-2">Дата рождения:</span>
+                <span class="text ml-2">{{contact.date_born}}</span>
+            </p>
+
+            {% endif %}
+
+            {% if contact.phone_number != "" %}
+
+            <p>
+                <span class="text-info ml-2">Номер телефона:</span>
+                <span class="text ml-2">{{contact.phone_number}}</span>
+            </p>
+
+            {% endif %}
+
+            {% if contact.position != "" %}
+            <p>
+                <span class="text-info ml-2">Должность:</span>
+                <span class="text ml-2">{{contact.position}}</span>
+            </p>
+            {% endif %}
+
+            {% if contact.address != "" %}
+            <p>
+                <span class="text-info ml-2">Адрес проживания:</span>
+                <span class="text ml-2">{{contact.address}}</span>
+            </p>
+
+            {% endif %}
+
+            {% if contact.hobbies != "" %}
+            <span class="text-info ml-2">Хобби:</span><br>
+            <div class="card-body ml-2-1 mb-1">{{contact.hobbies|linebreaks}}</div>
+            {% endif %}
+
+
+            {% if contact.add_info != "" %}
+            <span class="text-info ml-2 mt-0"> Дополнительная информация: </span><br>
+            <div class="card-body ml-2-1 mb-1">{{contact.add_info|linebreaks}}</div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

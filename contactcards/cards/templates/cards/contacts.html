@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{title}} :: {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+<a class="btn btn-primary" href="{% url 'add_contact' %}">Добавить контакт</a>
+
+{% for item in contacts %}
+<div class="table mt-3">
+    <p class="text"><a href="{% url 'info_contact' item.id %}" class="btn">{{item.surname}} {{item.name}}
+        {{item.patronymic}}</a></p>
+</div>
+<hr>
+{% endfor %}
+{% endblock %}
+
+

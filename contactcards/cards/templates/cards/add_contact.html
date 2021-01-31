@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+Новый сотрудник
+{% endblock %}
+
+
+{% block content %}
+
+
+<form method="post">
+    {% csrf_token %}
+
+    {% comment %}
+    {{ form.as_p }}
+    {% endcomment %}
+
+
+    <div>
+        <label class="text-info" for="{{from.name.id_for_label }}">Имя:</label>
+        <p>{{form.name}}</p>
+        <div class="invalid-feedback">
+            {{form.name.errors}}
+        </div>
+    </div>
+
+    <div>
+        <label class="text-info" for="{{from.surname.id_for_label }}">Фамилия:</label>
+        <p>{{form.surname}}</p>
+        <div class="invalid-feedback">
+            {{form.surname.errors}}
+        </div>
+    </div>
+
+    <div>
+        <label class="text-info" for="{{from.patronymic.id_for_label }}">Отчество:</label>
+        <p>{{form.patronymic}}</p>
+        <div class="invalid-feedback">
+            {{form.patronymic.errors}}
+        </div>
+    </div>
+
+
+    <div>
+        <label class="text-info" for="{{from.date_born.id_for_label }}">Дата рождения:</label>
+        <p>{{form.date_born}}</p>
+    </div>
+
+
+    <div>
+        <label class="text-info" for="{{from.phone_number.id_for_label }}">Номер телефона:</label>
+        <p>{{form.phone_number}}</p>
+    </div>
+
+    <div>
+        <label class="text-info" for="{{from.position.id_for_label }}">Должность:</label>
+        <p>{{form.position}}</p>
+    </div>
+
+    <div>
+        <label class="text-info" for="{{from.address.id_for_label }}">Адрес:</label>
+        <p>{{form.address}}</p>
+    </div>
+
+    <div>
+        <label class="text-info" for="{{from.hobbies.id_for_label }}">Хобби:</label>
+        <p>{{form.hobbies}}</p>
+    </div>
+
+    <div>
+        <label class="text-info" for="{{from.add_info.id_for_label }}">Дополнительная информация:</label>
+        <p>{{form.add_info}}</p>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary btn-block">Сохранить</button>
+
+</form>
+
+
+{% endblock %}
