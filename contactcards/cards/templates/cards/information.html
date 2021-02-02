@@ -38,7 +38,9 @@
 
             <p>
                 <span class="text-info ml-2">Номер телефона:</span>
-                <span class="text ml-2">{{contact.phone_number}}</span>
+                {% for phone in phone_numbers %}
+                <p><span class="text ml-2">{{phone.phone_number}}</span></p>
+                {% endfor %}
             </p>
 
             {% endif %}
